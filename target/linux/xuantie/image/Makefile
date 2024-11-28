@@ -19,6 +19,8 @@ define Image/BuildKernel
 	$(CP) $(STAGING_DIR_IMAGE)/th1520-light_c906_audio.bin $@.boot/light_c906_audio.bin
 	$(CP) $(STAGING_DIR_IMAGE)/th1520-str.bin $@.boot/str.bin
 
+	ln -sf th1520-lichee-pi-4a.dtb $@.boot/thead/light-lpi4a.dtb
+
 	rm -f $(KDIR)/boot.ext4
 	mkfs.ext4 -d $@.boot -L "boot" $(KDIR)/boot.ext4 "57M"
 endef
